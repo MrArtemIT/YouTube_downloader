@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YouTube_downloader</string>
+    <string name="start_text">Введите ссылку YouTube для скачивания видео</string>
+    <string name="start_button">Скачать</string>
+    <string name="toast_done">Загрузка завершена!</string>
+    <string name="toast_url_err">Ошибка url адреса</string>
+    <string name="toast_url">Введите url!</string>
+    <string name="toast_download">Загрузка началась...</string>
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <string name="set_debug">Dubug режим</string>
+</resources>

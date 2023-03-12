@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YouTube_downloader</string>
+    <string name="start_text">Enter the YouTube link to download the video</string>
+    <string name="start_button">Download</string>
+    <string name="toast_done">Done!</string>
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="set_debug">Debug mode</string>
+</resources>
