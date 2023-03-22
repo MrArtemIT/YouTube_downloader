@@ -8,8 +8,8 @@
 
     <Switch
         android:id="@+id/switch_debug"
-        android:layout_width="373dp"
-        android:layout_height="66dp"
+        android:layout_width="330dp"
+        android:layout_height="65dp"
         android:layout_marginTop="16dp"
         android:text="@string/set_debug"
         app:layout_constraintEnd_toEndOf="parent"
