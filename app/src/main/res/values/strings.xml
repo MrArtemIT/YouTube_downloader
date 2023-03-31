@@ -12,6 +12,8 @@
     <string name="coffee">Coffee</string>
     <string name="love_text">This app is free and ad-free. I would be pleased if you would transfer me some money for coffee</string>
 
+    <string name="telegram_link">t.me/EN_yt_downloader_SW</string>
+    <string name="telegram_linkV">https://t.me/EN_yt_downloader_SW</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="set_debug">Debug mode</string>

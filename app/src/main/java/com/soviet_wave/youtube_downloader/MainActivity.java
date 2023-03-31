@@ -6,8 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,7 @@ import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,16 +33,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView debug;
     private FloatingActionButton settings;
     private ProgressBar pBar;
-    private Button loveb;
-
-
-
+    private TextView tg;
+    private Button love;
     public static final String APP_PREFERENCES = "settings";
-    SharedPreferences pref;
 
-    String[] itemView = { "Video", "Only_audio(experimental)" };
+    String[] itemView = { "Video", "Only_audio" };
 
     public String item = "Video";
+    SharedPreferences pref;
 
 
 
@@ -51,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String android_v = (Build.VERSION.RELEASE);
-        Toast.makeText(MainActivity.this,"Powered by         Soviet_Wave", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MainActivity.this,"Powered by         Soviet_Wave", Toast.LENGTH_SHORT).show();
         edit_url = findViewById(R.id.editText);
         start_bt = findViewById(R.id.button);
         debug = findViewById(R.id.textV);
-        loveb = findViewById(R.id.button2);
         settings = findViewById(R.id.Settings_button);
+        love = findViewById((R.id.button2));
+        tg = findViewById(R.id.telegram_url);
         pref = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         pBar = findViewById(R.id.progressBar);
         pBar.setVisibility(View.INVISIBLE);
@@ -73,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Применяем адаптер к элементу spinner
         spinner.setAdapter(adapter);
-
         Python py  = Python.getInstance();
 
 
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         PyObject pyobj = py.getModule("YouTube");
 
-
+        //Выпадающий список
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -101,13 +99,9 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         spinner.setOnItemSelectedListener(itemSelectedListener);
-
-
-
         start_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                debug.setText("");
                 if (edit_url.getText().toString().equals(""))
                 {
                     Toast.makeText(MainActivity.this,getString(R.string.toast_url), Toast.LENGTH_SHORT).show();
@@ -137,26 +131,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        loveb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent browserIntent = new
-                        Intent(Intent.ACTION_VIEW, Uri.parse("https://new.donatepay.ru/@884550"));
-                startActivity(browserIntent);
-            }
-        });
-
-
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Settings.class);
                 startActivity(intent);
 
-
-
             }
         });
 
+        tg.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view)
+            {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.telegram_linkV)));
+                startActivity(browserIntent);
+            }
+
+        });
+
+        love.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://new.donatepay.ru/@884550"));
+                startActivity(browserIntent);
+            }
+        });
     }
 }

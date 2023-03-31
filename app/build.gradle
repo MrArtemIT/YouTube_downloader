@@ -9,19 +9,21 @@ android {
 
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.soviet_wave.youtube_downloader"
         minSdk 28
         targetSdk 33
         versionCode 1
-        versionName "1.1"
+        versionName "1.2"
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }
         python {
             version "3.8"
             pip {
-
+                //install "moviepy"
                 install "C:/Users/Alef Computers/OneDrive/Документы/GitHub/pytube"
+
 
             }
         }
@@ -59,7 +61,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation 'com.google.android.material:material:<version>'
+
+    implementation 'com.arthenica:ffmpeg-kit-full:4.5.1-1'
 
 
 
