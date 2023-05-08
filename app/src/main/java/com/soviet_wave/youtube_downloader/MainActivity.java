@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.Html;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,7 +24,7 @@ import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.IOException;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     } catch (Exception main){
                         Toast.makeText(MainActivity.this,getString(R.string.toast_url_err), Toast.LENGTH_SHORT).show();
+                        Log.d("URL",edit_url.getText().toString());
                         boolean debug_mode = pref.getBoolean("debug_mode",false);
                         if (debug_mode==true){
                             debug.setText("(debug massage) Сработал обработчик ошибок");
