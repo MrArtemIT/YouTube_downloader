@@ -9,11 +9,21 @@
     <string name="video">Видео</string>
     <string name="only_audio">Только аудио(Экспериментальная)</string>
     <string name="toast_download">Загрузка началась...</string>
-    <string name="coffee">Кофе</string>
-    <string name="love_text">Это приложение бесплатное и без рекламы. Мне было бы очень приятно, если бы вы перевели мне немного денег на кофе</string>
+    <string name="coffee">Поддержать</string>
+    <string name="love_text">Поддержать проект монетой</string>
+    <string name="material_string">Динамический цвет(только android 12)</string>
 
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
 
     <string name="set_debug">Dubug режим</string>
+
+    <string name="rebootM_OK">Хорошо</string>
+    <string name="rebootM_CANCEL">Отмена</string>
+    <string name="rebootM_Title">Изменение темы</string>
+    <string name="rebootM_Text">Изменения будут применены после перезапуска приложения</string>
+
+    <string name="android_ver">Только для Android 12!</string>
+    <string name="telegram_link">t.me/yt_downloader_SW</string>
+    <string name="telegram_linkV">https://t.me/yt_downloader_SW</string>
 </resources>

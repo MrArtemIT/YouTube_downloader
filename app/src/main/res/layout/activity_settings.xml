@@ -8,8 +8,8 @@
 
     <Switch
         android:id="@+id/switch_debug"
-        android:layout_width="330dp"
-        android:layout_height="65dp"
+        android:layout_width="371dp"
+        android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:text="@string/set_debug"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,5 +26,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/material_switch"
+        android:layout_width="371dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/material_string"
+        app:layout_constraintEnd_toEndOf="@+id/switch_debug"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch_debug"
+        app:layout_constraintTop_toBottomOf="@+id/switch_debug" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
