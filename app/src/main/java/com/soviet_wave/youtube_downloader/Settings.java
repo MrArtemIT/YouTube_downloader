@@ -33,7 +33,7 @@ public class Settings extends AppCompatActivity {
         }else {
             debug_sweech.setChecked(false);
         }
-
+        debug_text.setText("");
 
         debug_sweech.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -44,15 +44,16 @@ public class Settings extends AppCompatActivity {
 
 
                     if (debug_mode == false) {
-                        debug_text.setText("debug_mode is on");
+                        //debug_text.setText("debug_mode is on");
                         editor.putBoolean("debug_mode", true);
                         editor.apply();
 
                     } else {
-                        debug_text.setText("debug_mode is off");
+                        //debug_text.setText("debug_mode is off");
                         editor.putBoolean("debug_mode", false);
                         editor.apply();
                     }
+
             }
         });
     }

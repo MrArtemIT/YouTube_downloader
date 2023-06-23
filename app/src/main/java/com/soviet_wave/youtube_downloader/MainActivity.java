@@ -33,13 +33,15 @@ public class MainActivity extends AppCompatActivity {
     private TextView debug;
     private FloatingActionButton settings;
     private ProgressBar pBar;
+    private ProgressBar pBar_test;
     private TextView tg;
     private Button love;
+
     public static final String APP_PREFERENCES = "settings";
+    //public String item_test = getString(R.string.video);
+    //String[] itemView = { item_test, "Only_audio", "Playlist" };
 
-    String[] itemView = { "Video", "Only_audio" };
-
-    public String item = "Video";
+    public String item_static = "Video";
     SharedPreferences pref;
 
 
@@ -59,12 +61,20 @@ public class MainActivity extends AppCompatActivity {
         tg = findViewById(R.id.telegram_url);
         pref = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         pBar = findViewById(R.id.progressBar);
+        pBar_test = findViewById(R.id.progressBar_test);
         pBar.setVisibility(View.INVISIBLE);
+        pBar_test.setVisibility(View.INVISIBLE);
         debug.setText("");
         if (!Python.isStarted()){
             Python.start(new AndroidPlatform(this));
         }
 
+        //Список
+        //String item_video = getString(R.string.video);
+        //String item_only_audio = getString(R.string.only_audio);
+        //String item_playlist = getString(R.string.playlist);
+        //String[] itemView = { item_video, item_only_audio, item_playlist };
+        String[] itemView = { "Video", "Playlist(BETA)", "Audio" };
         Spinner spinner = findViewById(R.id.spinner);
         // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, itemView);
@@ -78,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         PyObject pyobj = py.getModule("YouTube");
+        PyObject pyobj_playlist = py.getModule("playlist_download");
+        PyObject pyobj_audio = py.getModule("audio_download");
+        //Уведомление
 
         //Выпадающий список
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
@@ -85,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 // Получаем выбранный объект
-                item = (String)parent.getItemAtPosition(position);
+                item_static = (String)parent.getItemAtPosition(position);
                 boolean debug_mode = pref.getBoolean("debug_mode",false);
                 if (debug_mode==true){
-                    Toast.makeText(MainActivity.this,item, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,item_static, Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -102,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         start_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                debug.setText("");
                 if (edit_url.getText().toString().equals(""))
                 {
                     Toast.makeText(MainActivity.this,getString(R.string.toast_url), Toast.LENGTH_SHORT).show();
@@ -111,19 +125,66 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         String url = edit_url.getText().toString();
                         Toast.makeText(MainActivity.this, getString(R.string.toast_download), Toast.LENGTH_SHORT).show();
-                        PyObject obj = pyobj.callAttr("main", url, item);
-                        Toast.makeText(MainActivity.this, getString(R.string.toast_done), Toast.LENGTH_SHORT).show();
-                        boolean debug_mode = pref.getBoolean("debug_mode",false);
-                        if (debug_mode==true){
-                            debug.setText("(debug massage) Ну, наверное скачалось");
-                        }
+                        pBar.setVisibility(View.VISIBLE);
+                        Thread.UncaughtExceptionHandler h = new Thread.UncaughtExceptionHandler() {
+                            @Override
+                            public void uncaughtException(Thread th, Throwable ex) {
+                                System.out.println("Uncaught exception: " + ex);
+                            }
+                        };
+                        Thread t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Log.d("item_static", item_static);
+                                    if (item_static=="Video") {
+                                        Log.d("Thread", "Video");
+                                        PyObject obj = pyobj.callAttr("main", url, item_static);
+
+                                    }else if (item_static=="Playlist(BETA)") {
+                                        Log.d("Thread", "Playlist");
+                                        PyObject obj = pyobj_playlist.callAttr("main", url, item_static);
+                                    }else if (item_static=="Audio"){
+                                        Log.d("Thread", "Audio");
+                                        PyObject obj = pyobj_audio.callAttr("main", url, item_static);
+                                    //}else if (item_static=="Видео"){
+                                    //    Log.d("Thread", "Видео");
+                                    //    PyObject obj = pyobj.callAttr("main", url, item_static);
+                                    //}else if (item_static=="Плейлист(БЕТА)"){
+                                    //    Log.d("Thread", "Плейлист");
+                                    //    PyObject obj = pyobj_playlist.callAttr("main", url, item_static);
+                                    }else{
+                                        Log.d("Thread", "Аудио");
+                                        PyObject obj = pyobj_audio.callAttr("main", url, item_static);
+                                    }
+                                    pBar.setVisibility(View.INVISIBLE);
+
+                                } catch (Exception main) {
+                                    Log.d("Thread_ERROR", "Капец пришёл потоку");
+                                    pBar.setVisibility(View.INVISIBLE);
+                                    debug.setText(getString(R.string.toast_url_err));
+                                    try {
+                                        Thread.sleep(5000);
+                                    } catch (InterruptedException err) {
+                                        throw new RuntimeException(err);
+                                    }
+                                    debug.setText(" ");
+                                    //debug.setVisibility(View.INVISIBLE);
+                                }
+                                throw new RuntimeException();
+                            }
+                        };
+                        t.setUncaughtExceptionHandler(h);
+                        t.start();
+
+
                     } catch (Exception main){
                         Toast.makeText(MainActivity.this,getString(R.string.toast_url_err), Toast.LENGTH_SHORT).show();
-                        Log.d("URL",edit_url.getText().toString());
                         boolean debug_mode = pref.getBoolean("debug_mode",false);
                         if (debug_mode==true){
                             debug.setText("(debug massage) Сработал обработчик ошибок");
                         }
+                        Log.d("Thread_ERROR", "Капец пришёл потоку");
                     }
 
                 }
@@ -155,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
         love.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://new.donatepay.ru/@884550"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://boosty.to/mr_artem/donate"));
                 startActivity(browserIntent);
             }
         });

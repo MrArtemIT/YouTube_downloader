@@ -12,12 +12,24 @@
         android:layout_width="203dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/telegram_link"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/telegram_icon"
+        android:layout_width="29dp"
+        android:layout_height="24dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/telegram_url"
+        app:layout_constraintEnd_toStartOf="@+id/telegram_url"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@+id/telegram_url"
+        app:srcCompat="@drawable/ic_telegram" />
 
     <TextView
         android:id="@+id/textView"
@@ -25,6 +37,8 @@
         android:layout_height="71dp"
         android:layout_marginBottom="20dp"
         android:text="@string/start_text"
+        android:textAlignment="center"
+        android:textAllCaps="false"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="@+id/editText"
@@ -33,12 +47,16 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="173dp"
-        android:layout_height="59dp"
+        android:layout_width="193dp"
+        android:layout_height="69dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/green"
         android:text="@string/start_button"
-        android:textColor="#95000000"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#B2000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/editText"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/editText"
@@ -46,12 +64,14 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="334dp"
-        android:layout_height="48dp"
+        style="@style/Theme.YouTube_downloader"
+        android:layout_width="329dp"
+        android:layout_height="59dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="39dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,9 +80,12 @@
 
     <TextView
         android:id="@+id/textV"
-        android:layout_width="322dp"
-        android:layout_height="22dp"
+        android:layout_width="365dp"
+        android:layout_height="21dp"
         android:layout_marginStart="16dp"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -70,18 +93,18 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/Settings_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="57dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="28dp"
         android:clickable="true"
         app:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_preferences" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_settings" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBar_test"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="351dp"
         android:layout_height="26dp"
@@ -103,24 +126,36 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="115dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="132dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="52dp"
         android:text="@string/coffee"
         android:textColor="#95000000"
         app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="@+id/progressBar"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="273dp"
-        android:layout_height="79dp"
+        android:layout_width="248dp"
+        android:layout_height="35dp"
         android:layout_marginBottom="16dp"
         android:text="@string/love_text"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2" />
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="81dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="24dp"
+        android:theme="@style/Theme.YouTube_downloader"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

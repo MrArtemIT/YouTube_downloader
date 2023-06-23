@@ -7,15 +7,22 @@
     <string name="toast_url_err">Ошибка url адреса</string>
     <string name="toast_url">Введите url!</string>
     <string name="video">Видео</string>
-    <string name="only_audio">Только аудио(Экспериментальная)</string>
+    <string name="only_audio">Только аудио</string>
+    <string name="playlist">Плейлист(БЕТА)</string>
     <string name="toast_download">Загрузка началась...</string>
-    <string name="coffee">Кофе</string>
-    <string name="love_text">Это приложение бесплатное и без рекламы. Мне было бы очень приятно, если бы вы перевели мне немного денег на кофе</string>
+    <string name="coffee">Поддержать</string>
+    <string name="love_text">Поддержать проект</string>
 
-    <string name="telegram_link">t.me/yt_downloader_SW</string>
-    <string name="telegram_linkV">https://t.me/yt_downloader_SW</string>
+
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
 
     <string name="set_debug">Dubug режим</string>
+
+
+
+    <string name="telegram_link">t.me/yt_downloader_SW</string>
+    <string name="telegram_linkV">https://t.me/yt_downloader_SW</string>
+
+
 </resources>
