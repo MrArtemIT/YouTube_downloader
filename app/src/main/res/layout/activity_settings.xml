@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:hapticFeedbackEnabled="true"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -34,7 +35,7 @@
         android:id="@+id/textView3"
         android:layout_width="136dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/version_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
@@ -47,11 +48,47 @@
         android:layout_height="19dp"
         android:layout_marginStart="167dp"
         android:layout_marginEnd="168dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="52dp"
         android:text="@string/build"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="136dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/version_code"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <ImageButton
+        android:id="@+id/github_Button"
+        android:backgroundTint="@color/green"
+        android:layout_width="155dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_githubl" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="288dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/github"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/github_Button"
+        app:layout_constraintEnd_toEndOf="@+id/github_Button"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/github_Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

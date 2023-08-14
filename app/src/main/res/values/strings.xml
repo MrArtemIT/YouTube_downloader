@@ -24,7 +24,15 @@
     <string name="telegram_link">t.me/EN_yt_downloader_SW</string>
     <string name="telegram_linkV">https://t.me/EN_yt_downloader_SW</string>
 
-    <string name="version_name">version 1.4</string>
+    <string name="version_name">version 1.6</string>
+    <string name="version_code">version code 7</string>
     <string name="build_DEV">DEV build</string>
     <string name="build">RELEASE build</string>
+
+
+    <string name="channel_name">RELEASE build</string>
+    <string name="channel_description">RELEASE build</string>
+
+    <string name="github">This app is open source on github</string>
+    <string name="github_link">https://github.com/MrArtemIT/YouTube_downloader</string>
 </resources>

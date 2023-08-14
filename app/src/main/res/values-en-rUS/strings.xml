@@ -24,5 +24,7 @@
     <string name="telegram_link">t.me/EN_yt_downloader_SW</string>
     <string name="telegram_linkV">https://t.me/EN_yt_downloader_SW</string>
 
+    <string name="github">This app is open source on github</string>
+    <string name="github_link">https://github.com/MrArtemIT/YouTube_downloader</string>
 
 </resources>
