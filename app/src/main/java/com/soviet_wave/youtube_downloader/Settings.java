@@ -73,7 +73,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 button_github.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/MrArtemIT/YouTube_downloader"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/MrArtemIT/YouTube_downloader/tree/YouTube_downloader"));
                 startActivity(browserIntent);
             }
         });
