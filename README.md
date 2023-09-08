@@ -11,9 +11,5 @@ So, this is a simple application to download content from YouTube. It uses 2 pro
 In python, downloading takes place through the pytube library (it often fails due to changes in YouTube algorithms).
 I hope this project can help someone
 
-#Links
-GetApps  https://global.app.mi.com/details?lo=RU&la=en_US&id=com.soviet_wave.youtube_downloader
-Rustore  https://apps.rustore.ru/app/com.soviet_wave.youtube_downloader
-
 В Play market приложение не появится в ближайшее время из за санкций
 The app will not appear in the Play market in the near future due to sanctions
