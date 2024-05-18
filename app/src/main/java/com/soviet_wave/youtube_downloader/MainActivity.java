@@ -34,6 +34,9 @@ import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
+
+
+
 public class MainActivity extends AppCompatActivity {
     private EditText edit_url;
     private Button start_bt;

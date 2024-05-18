@@ -14,11 +14,36 @@
         <item name="android:windowBackground">@color/green_backgroung_light</item>
 
     </style>
-    <style name="Theme.YouTube_downloader.NoActionBar">
+    <style name="Theme.MaterialYou" parent="Theme.Material3.DynamicColors.Light">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/material_dynamic_primary70</item>
+        <item name="colorPrimaryVariant">@color/material_dynamic_neutral80</item>
+        <item name="colorOnPrimary">@color/material_dynamic_neutral50</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/material_dynamic_primary70</item>
+        <item name="colorSecondaryVariant">@color/material_dynamic_neutral80</item>
+        <item name="colorOnSecondary">@color/material_dynamic_neutral80</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/material_dynamic_primary90</item>
+        <!-- Customize your theme here. -->
+        <item name="actionButtonStyle">@color/material_dynamic_primary70</item>
+
+        <item name="android:windowBackground">@color/material_dynamic_primary90</item>
+
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:progressBarStyle">@color/green</item>
+
+
+
+
+
+
     </style>
-    <style name="Theme.YouTube_downloader.AppBarOverlay"
-        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="Theme.YouTube_downloader.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.secondary_buttons" parent="Theme.Material3.DynamicColors.Light">
+        <item name="android:backgroundTint">@color/material_dynamic_primary70</item>
+        <item name="colorAccent">@color/material_dynamic_primary60</item>
+    </style>
 </resources>

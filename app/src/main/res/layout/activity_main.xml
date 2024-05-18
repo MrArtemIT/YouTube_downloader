@@ -51,7 +51,7 @@
         android:layout_width="193dp"
         android:layout_height="69dp"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="@color/material_dynamic_primary70"
         android:text="@string/start_button"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -66,7 +66,7 @@
 
     <EditText
         android:id="@+id/editText"
-        style="@style/Theme.YouTube_downloader"
+        style="@style/Theme.MaterialYou"
         android:layout_width="329dp"
         android:layout_height="59dp"
         android:layout_marginStart="38dp"
@@ -100,7 +100,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="28dp"
         android:clickable="true"
-        app:backgroundTint="@color/green"
+        app:backgroundTint="@color/material_dynamic_secondary30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_settings"
@@ -130,8 +130,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="132dp"
-        android:layout_height="55dp"
+        android:layout_width="146dp"
+        android:layout_height="50dp"
         android:layout_marginTop="52dp"
         android:hapticFeedbackEnabled="true"
         android:text="@string/coffee"
