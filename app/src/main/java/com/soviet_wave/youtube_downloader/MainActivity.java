@@ -172,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
                                     if (item_static == "Video") {
                                         Log.d("Thread", "Video");
                                         PyObject obj = pyobj.callAttr("main", url, item_static);
+                                        debug.setText("debug");
 
                                     } else if (item_static == "Playlist(BETA)") {
                                         Log.d("Thread", "Playlist");

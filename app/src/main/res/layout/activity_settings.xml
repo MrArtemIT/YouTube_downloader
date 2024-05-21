@@ -7,7 +7,7 @@
     android:theme="@style/Theme.MaterialYou_settings"
     tools:context=".Settings">
 
-    <Switch
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switch_debug"
         android:layout_width="330dp"
         android:layout_height="65dp"
@@ -52,7 +52,7 @@
         android:layout_marginStart="167dp"
         android:layout_marginEnd="168dp"
         android:layout_marginBottom="52dp"
-        android:text="@string/build_DEV"
+        android:text="@string/build"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,5 +93,6 @@
         app:layout_constraintEnd_toEndOf="@+id/github_Button"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/github_Button" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

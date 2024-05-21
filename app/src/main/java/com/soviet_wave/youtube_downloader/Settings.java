@@ -9,14 +9,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.android.material.materialswitch.MaterialSwitch;
+
 public class Settings extends AppCompatActivity {
-    private Switch debug_sweech;
+    private MaterialSwitch debug_sweech;
     private TextView debug_text;
     private ImageButton button_github;
     private SharedPreferences pref;
@@ -30,7 +31,7 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Switch debug_sweech = (Switch) findViewById(R.id.switch_debug);
+        debug_sweech = findViewById(R.id.switch_debug);
         TextView debug_text = findViewById(R.id.textView2);
         button_github = findViewById(R.id.github_Button);
         pref = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
