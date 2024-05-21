@@ -39,7 +39,7 @@
     </style>
 
     <style name="Theme.secondary_buttons" parent="Theme.Material3.DynamicColors.Light">
-        <item name="android:backgroundTint">@color/material_dynamic_primary70</item>
+        <item name="android:backgroundTint">@color/material_dynamic_primary50</item>
         <item name="colorAccent">@color/material_dynamic_primary60</item>
     </style>
     <!-- Тема для настроек -->
@@ -51,6 +51,13 @@
         <item name="colorSecondary">@color/material_dynamic_neutral80</item>
         <item name="colorSecondaryVariant">@color/material_dynamic_neutral80</item>
         <item name="colorOnSecondary">@color/material_dynamic_neutral80</item>
+        <item name="android:windowBackground">@color/material_dynamic_secondary20</item>
+        <item name="android:statusBarColor">@color/material_dynamic_secondary20</item>
+        <item name="android:button">@color/material_dynamic_neutral60</item>
+
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
 

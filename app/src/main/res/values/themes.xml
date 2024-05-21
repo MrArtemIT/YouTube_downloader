@@ -14,30 +14,21 @@
         <item name="android:windowBackground">@color/green_backgroung_light</item>
 
     </style>
-    <style name="Theme.MaterialYou" parent="Theme.Material3.DynamicColors.Light">
-        <!-- Primary brand color. -->
+    <style name="Theme.MaterialYou" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="colorPrimary">@color/material_dynamic_primary70</item>
         <item name="colorPrimaryVariant">@color/material_dynamic_neutral80</item>
         <item name="colorOnPrimary">@color/material_dynamic_neutral50</item>
-
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/material_dynamic_primary70</item>
+        <item name="colorSecondary">@color/material_dynamic_neutral60</item>
         <item name="colorSecondaryVariant">@color/material_dynamic_neutral80</item>
         <item name="colorOnSecondary">@color/material_dynamic_neutral80</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/material_dynamic_primary90</item>
-        <!-- Customize your theme here. -->
-        <item name="actionButtonStyle">@color/material_dynamic_primary70</item>
+        <item name="android:statusBarColor">@color/material_dynamic_secondary80</item>
+        <item name="android:color">@color/material_dynamic_neutral20</item>
+        <item name="android:button">@color/material_dynamic_neutral60</item>
 
-        <item name="android:windowBackground">@color/material_dynamic_primary90</item>
+        <item name="android:windowBackground">@color/material_dynamic_secondary80</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:progressBarStyle">@color/green</item>
-
-
-
-
 
 
     </style>
@@ -45,5 +36,23 @@
     <style name="Theme.secondary_buttons" parent="Theme.Material3.DynamicColors.Light">
         <item name="android:backgroundTint">@color/material_dynamic_primary70</item>
         <item name="colorAccent">@color/material_dynamic_primary60</item>
+    </style>
+    <!-- Тема для настроек -->
+    <style name="Theme.MaterialYou_settings" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="colorPrimary">@color/material_dynamic_primary70</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+        <item name="colorOnPrimary">@color/material_dynamic_neutral50</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/material_dynamic_neutral80</item>
+        <item name="colorSecondaryVariant">@color/material_dynamic_neutral80</item>
+        <item name="colorOnSecondary">@color/material_dynamic_neutral80</item>
+        <item name="android:statusBarColor">@color/material_dynamic_secondary80</item>
+        <item name="android:windowBackground">@color/material_dynamic_secondary80</item>
+        <item name="android:button">@color/material_dynamic_neutral60</item>
+
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
     </style>
 </resources>

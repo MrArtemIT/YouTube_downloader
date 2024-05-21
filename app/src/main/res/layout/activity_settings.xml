@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialYou_settings"
     tools:context=".Settings">
 
     <Switch
-        android:theme="@style/Theme.MaterialYou"
         android:id="@+id/switch_debug"
         android:layout_width="330dp"
         android:layout_height="65dp"
         android:layout_marginTop="16dp"
+        android:hapticFeedbackEnabled="true"
         android:outlineSpotShadowColor="#FF0000"
         android:text="@string/set_debug"
+        android:theme="@style/Theme.MaterialYou"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hapticFeedbackEnabled="true"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -70,7 +71,7 @@
 
     <ImageButton
         android:id="@+id/github_Button"
-        android:backgroundTint="@color/material_dynamic_primary70"
+        style="@style/Theme.secondary_buttons"
         android:layout_width="155dp"
         android:layout_height="59dp"
         android:layout_marginBottom="1dp"
