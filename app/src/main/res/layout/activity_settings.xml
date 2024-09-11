@@ -22,6 +22,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_lib"
+        android:layout_width="330dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="1dp"
+        android:hapticFeedbackEnabled="true"
+        android:outlineSpotShadowColor="#FF0000"
+        android:text="@string/set_lib"
+        android:theme="@style/Theme.MaterialYou"
+        app:layout_constraintEnd_toEndOf="@+id/switch_debug"
+        app:layout_constraintStart_toStartOf="@+id/switch_debug"
+        app:layout_constraintTop_toBottomOf="@+id/switch_debug" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="364dp"
@@ -35,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/version"
         android:layout_width="136dp"
         android:layout_height="30dp"
         android:layout_marginBottom="12dp"
@@ -59,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/version_code"
         android:layout_width="136dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"

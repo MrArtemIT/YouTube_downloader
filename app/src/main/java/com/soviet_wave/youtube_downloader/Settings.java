@@ -11,18 +11,22 @@ import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.Switch;
 import android.widget.TextView;
+import  com.soviet_wave.youtube_downloader.BuildConfig;
 
 import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class Settings extends AppCompatActivity {
     private MaterialSwitch debug_sweech;
+    private MaterialSwitch lib_switch;
     private TextView debug_text;
     private ImageButton button_github;
     private SharedPreferences pref;
     private final String save_key = "save_key";
     public static final String APP_PREFERENCES = "settings";
+
+    private TextView ver_code;
+    private  TextView version;
 
 
 
@@ -32,17 +36,37 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         debug_sweech = findViewById(R.id.switch_debug);
+        lib_switch = findViewById(R.id.switch_lib);
         TextView debug_text = findViewById(R.id.textView2);
         button_github = findViewById(R.id.github_Button);
         pref = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
+        //получаем номер версии и отображаем его
+        version = findViewById(R.id.version);
+        String version_name = getResources().getString(R.string.version_name) + " " + BuildConfig.VERSION_NAME;
+        version.setText(version_name);
+
+        //получаем код версии и отображаем его
+        ver_code = findViewById(R.id.version_code);
+        String versionCode = getResources().getString(R.string.version_code) + " " + BuildConfig.VERSION_CODE;
+        ver_code.setText(versionCode);
+
         //Получаем значения из памяти чтобы отобразить верное значение переключателя вкл/выкл
         boolean debug_mode = pref.getBoolean("debug_mode",false);
         SharedPreferences.Editor editor = pref.edit();
+
+        boolean fix_mode = pref.getBoolean("fix_mode",false);
+        SharedPreferences.Editor fix_editor = pref.edit();
         if(debug_mode == true){
             debug_sweech.setChecked(true);
         }else {
             debug_sweech.setChecked(false);
+        }
+
+        if(fix_mode == true){
+            lib_switch.setChecked(true);
+        }else {
+            lib_switch.setChecked(false);
         }
         debug_text.setText("");
 
@@ -56,17 +80,33 @@ public class Settings extends AppCompatActivity {
 
                 debug_sweech.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                     if (debug_mode == false) {
-                        //debug_text.setText("debug_mode is on");
                         editor.putBoolean("debug_mode", true);
                         editor.apply();
 
                     } else {
-                        //debug_text.setText("debug_mode is off");
                         editor.putBoolean("debug_mode", false);
                         editor.apply();
                     }
 
             }
+        });
+
+        //Выбор библиотеки pytube или pytubefix
+        lib_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                debug_sweech.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                if (fix_mode == false) {
+                    fix_editor.putBoolean("fix_mode", true);
+                    fix_editor.apply();
+
+                } else {
+                    fix_editor.putBoolean("fix_mode", false);
+                    fix_editor.apply();
+                }
+
+            }
+
         });
 
         //Кнопка для перехода на github

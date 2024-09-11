@@ -13,8 +13,8 @@ android {
         applicationId "com.soviet_wave.youtube_downloader"
         minSdk 28
         targetSdk 33
-        versionCode 9
-        versionName "2.1"
+        versionCode 10
+        versionName "2.2"
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a"
             //"x86", "x86_64"
@@ -25,6 +25,7 @@ android {
                 //install "moviepy"
                 //install "C:/Users/Alef Computers/OneDrive/Документы/GitHub/pytube"
                 install "pytube"
+                install "pytubefix"
 
 
             }

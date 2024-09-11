@@ -2,20 +2,25 @@ import time
 import sys
 import pytube
 import os
+from pytubefix import YouTube
 #from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips
 pytube.request.default_range_size = 1048576 
 
-def main(url, item_static):
+def main(url, fix_mode):
     '''global vid            
     yt = pytube.YouTube(url)            
-    vid = yt.streams.get_highest_resolution()  '''    
-    
+    vid = yt.streams.get_highest_resolution()  '''
 
-    if url=="test":
+    dire = ("/storage/emulated/0/Download")
+    if url == "test":
         time.sleep(0.9)
+    elif fix_mode == "true":
+        yt = YouTube(url)
+        vid = yt.streams.get_highest_resolution()
+        vid.download(dire)
     else:
 
-        dire = ("/storage/emulated/0/Download")
+
 
         yt = pytube.YouTube(url)
         #ft = yt.title

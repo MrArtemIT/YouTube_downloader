@@ -122,8 +122,6 @@ public class MainActivity extends AppCompatActivity {
         PyObject pyobj = py.getModule("YouTube");
         PyObject pyobj_playlist = py.getModule("playlist_download");
         PyObject pyobj_audio = py.getModule("audio_download");
-        //Уведомление
-        // Идентификатор уведомления
 
 
         //Выпадающий список
@@ -154,7 +152,10 @@ public class MainActivity extends AppCompatActivity {
                 if (edit_url.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, getString(R.string.toast_url), Toast.LENGTH_SHORT).show();
                 } else {
+                    boolean fix_mode = pref.getBoolean("fix_mode",false);
+                    String  string_fix_mode = Boolean.toString(fix_mode);
                     try {
+
                         String url = edit_url.getText().toString();
                         Toast.makeText(MainActivity.this, getString(R.string.toast_download), Toast.LENGTH_SHORT).show();
                         pBar.setVisibility(View.VISIBLE);
@@ -164,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
                                 System.out.println("Uncaught exception: " + ex);
                             }
                         };
+
                         Thread t = new Thread() {
                             @Override
                             public void run() {
@@ -171,21 +173,15 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d("item_static", item_static);
                                     if (item_static == "Video") {
                                         Log.d("Thread", "Video");
-                                        PyObject obj = pyobj.callAttr("main", url, item_static);
-                                        debug.setText("debug");
+                                        Log.d("Test", string_fix_mode);
+                                        PyObject obj = pyobj.callAttr("main", url, string_fix_mode);
 
                                     } else if (item_static == "Playlist(BETA)") {
                                         Log.d("Thread", "Playlist");
-                                        PyObject obj = pyobj_playlist.callAttr("main", url, item_static);
+                                        PyObject obj = pyobj_playlist.callAttr("main", url, string_fix_mode);
                                     } else if (item_static == "Audio") {
                                         Log.d("Thread", "Audio");
-                                        PyObject obj = pyobj_audio.callAttr("main", url, item_static);
-                                        //}else if (item_static=="Видео"){
-                                        //    Log.d("Thread", "Видео");
-                                        //    PyObject obj = pyobj.callAttr("main", url, item_static);
-                                        //}else if (item_static=="Плейлист(БЕТА)"){
-                                        //    Log.d("Thread", "Плейлист");
-                                        //    PyObject obj = pyobj_playlist.callAttr("main", url, item_static);
+                                        PyObject obj = pyobj_audio.callAttr("main", url, string_fix_mode);
                                     } else {
                                         Log.d("Thread", "Аудио");
                                         PyObject obj = pyobj_audio.callAttr("main", url, item_static);

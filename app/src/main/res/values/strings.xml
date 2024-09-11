@@ -15,6 +15,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="set_debug">Debug mode</string>
+    <string name="set_lib">Use pytubefix</string>
     <string name="input_text">url</string>
 
 
@@ -25,8 +26,8 @@
     <string name="telegram_link">t.me/EN_yt_downloader_SW</string>
     <string name="telegram_linkV">https://t.me/EN_yt_downloader_SW</string>
 
-    <string name="version_name">version 2.1</string>
-    <string name="version_code">version code 9</string>
+    <string name="version_name">version</string>
+    <string name="version_code">version code</string>
     <string name="build_DEV">DEV build</string>
     <string name="build">RELEASE build</string>
 
