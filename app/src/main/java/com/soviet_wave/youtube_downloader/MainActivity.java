@@ -54,34 +54,23 @@ public class MainActivity extends AppCompatActivity {
     public String item_static = "Video";
     SharedPreferences pref;
 
-
-    // Идентификатор уведомления
-    private static final int NOTIFY_ID = 101;
-
     // Идентификатор канала
     private static String CHANNEL_ID = "Cat channel";
     //Длина вибрации (пауза, вибрация, пауза и тд)
     public long[] pattern = {0, 100, 100, 100, 100, 100};
 
-    private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.channel_name);
-            String description = getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pref = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        boolean theme_mode = pref.getBoolean("Dynamic_Colors",false);
+        SharedPreferences.Editor theme_editor = pref.edit();
+        if (theme_mode == true){
+            setTheme(R.style.Theme_MaterialYou);
+        }else {
+            setTheme(R.style.Theme_YouTube_downloader);
+        }
         setContentView(R.layout.activity_main);
         //Toast.makeText(MainActivity.this,"Powered by         Soviet_Wave", Toast.LENGTH_SHORT).show();
         edit_url = findViewById(R.id.editText);
@@ -153,7 +142,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, getString(R.string.toast_url), Toast.LENGTH_SHORT).show();
                 } else {
                     boolean fix_mode = pref.getBoolean("fix_mode",false);
-                    String  string_fix_mode = Boolean.toString(fix_mode);
+                    boolean rutube_mode = pref.getBoolean("rutube_mode",false);
+                    String string_rutube_mode = Boolean.toString(rutube_mode);
+                    String string_fix_mode = Boolean.toString(fix_mode);
                     try {
 
                         String url = edit_url.getText().toString();
@@ -173,8 +164,9 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d("item_static", item_static);
                                     if (item_static == "Video") {
                                         Log.d("Thread", "Video");
-                                        Log.d("Test", string_fix_mode);
-                                        PyObject obj = pyobj.callAttr("main", url, string_fix_mode);
+                                        Log.d("Fix_mode", string_fix_mode);
+                                        Log.d("Rutube", string_rutube_mode);
+                                        PyObject obj = pyobj.callAttr("main", url, string_fix_mode, string_rutube_mode);
 
                                     } else if (item_static == "Playlist(BETA)") {
                                         Log.d("Thread", "Playlist");
@@ -258,5 +250,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        //Диалоговое окно
+        
     }
 }

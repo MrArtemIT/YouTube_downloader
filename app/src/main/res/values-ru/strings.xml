@@ -13,6 +13,9 @@
     <string name="coffee">Поддержать</string>
     <string name="love_text">Поддержать разработчика</string>
     <string name="input_text">Введите url</string>
+    <string name="set_lib">Использовать pytubefix</string>
+    <string name="set_theme">Динамические цвета(Material 3)</string>
+    <string name="set_rutube">Использовать rutube</string>
 
 
     <string name="nav_header_title">Android Studio</string>

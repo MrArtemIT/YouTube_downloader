@@ -3,10 +3,11 @@ import sys
 import pytube
 import os
 from pytubefix import YouTube
+from rutube import Rutube
 #from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips
 pytube.request.default_range_size = 1048576 
 
-def main(url, fix_mode):
+def main(url, strung_fix_mode, string_rutube_mode):
     '''global vid            
     yt = pytube.YouTube(url)            
     vid = yt.streams.get_highest_resolution()  '''
@@ -14,7 +15,10 @@ def main(url, fix_mode):
     dire = ("/storage/emulated/0/Download")
     if url == "test":
         time.sleep(0.9)
-    elif fix_mode == "true":
+    elif string_rutube_mode == "true":
+        rt = Rutube(url)
+        rt.get_best().download(dire)
+    elif strung_fix_mode == "true":
         yt = YouTube(url)
         vid = yt.streams.get_highest_resolution()
         vid.download(dire)

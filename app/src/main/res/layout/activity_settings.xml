@@ -30,10 +30,33 @@
         android:hapticFeedbackEnabled="true"
         android:outlineSpotShadowColor="#FF0000"
         android:text="@string/set_lib"
-        android:theme="@style/Theme.MaterialYou"
         app:layout_constraintEnd_toEndOf="@+id/switch_debug"
         app:layout_constraintStart_toStartOf="@+id/switch_debug"
         app:layout_constraintTop_toBottomOf="@+id/switch_debug" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_theme"
+        android:layout_width="330dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="9dp"
+        android:hapticFeedbackEnabled="true"
+        android:outlineSpotShadowColor="#FF0000"
+        android:text="@string/set_theme"
+        app:layout_constraintEnd_toEndOf="@+id/switch_lib"
+        app:layout_constraintStart_toStartOf="@+id/switch_lib"
+        app:layout_constraintTop_toBottomOf="@+id/switch_lib" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_rutube"
+        android:layout_width="330dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:hapticFeedbackEnabled="true"
+        android:outlineSpotShadowColor="#FF0000"
+        android:text="@string/set_rutube"
+        app:layout_constraintEnd_toEndOf="@+id/switch_theme"
+        app:layout_constraintStart_toStartOf="@+id/switch_theme"
+        app:layout_constraintTop_toBottomOf="@+id/switch_theme" />
 
     <TextView
         android:id="@+id/textView2"

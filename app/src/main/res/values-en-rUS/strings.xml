@@ -15,6 +15,9 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="set_debug">Debug mode</string>
+    <string name="set_lib">Use pytubefix</string>
+    <string name="set_theme">Dynamic colors</string>
+    <string name="set_rutube">Use rutube</string>
     <string name="input_text">url</string>
 
 
